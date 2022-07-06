@@ -12,7 +12,9 @@ extensions = [
     'sphinx_design', 
     'sphinx_copybutton',
     # 'nbsphinx',
-    'sphinx_togglebutton'
+    'sphinx_togglebutton',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.viewcode"
     ]#"sphinxcontrib.bibtex","sphinxcontrib.rsvgconverter","sphinx.ext.autodoc","sphinx.ext.viewcode"]
 myst_enable_extensions = ["colon_fence", "deflist", "substitution", "html_image"]
 

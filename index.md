@@ -81,11 +81,15 @@ predictions = predictor.predict(test_data)
 :animate: fade-in-slide-down
 :color: primary
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 :::
 
 :::{dropdown} Image Classification
 :animate: fade-in-slide-down
 :color: primary
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 :::
 
@@ -154,7 +158,6 @@ E
     :maxdepth: 1
 
     get_started/tabular_quick_start
-    get_started/test
     get_started/install
 
 .. toctree::
@@ -163,5 +166,12 @@ E
    :maxdepth: 2
    
    tutorials/tabular/index
+
+.. toctree::
+   :caption: API
+   :hidden:
+   :maxdepth: 2
+   
+   api/index
 
 ```

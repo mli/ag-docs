@@ -4,4 +4,7 @@ dependencies:
   - pip:
     - sphinx
     - myst_parser
-    - sphinx_material
+    - sphinx-material
+    - furo
+    - sphinx-togglebutton
+    - sphinx-copybutton

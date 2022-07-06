@@ -3,10 +3,11 @@ Tabluar Prediction
 
 In a tabular prediction task, we predict the values in a column based on
 the rest columns’ values. This tutorial demonstrates how to use
-AutoGluon for this task via a simple ``fit()`` call.
+AutoGluon for this task.
 
-To start, import AutoGluon’s ``TabularPredictor`` and ``TabularDataset``
-classes from the ``tabular`` module.
+To start, import AutoGluon’s ``TabularDataset`` and
+``TabularPredictor``\ classes from the ``tabular`` module. We will use
+the former to load data and the latter to train models and predict.
 
 .. container:: {toggle}
 
@@ -456,10 +457,10 @@ classes from the ``tabular`` module.
 
     from autogluon.tabular import TabularDataset, TabularPredictor
 
-The tabular dataset contains individuals’ information such as occupation
-with if or not her income exceeds $50,000, which is the predicting
-target. We load this dataset directly from a URL by ``TabularDataset``.
-This class is a subclass of `pandas
+The dataset we will use contains individuals’ information such as
+occupation with if or not her income exceeds $50,000, which is the
+predicting target. We load this dataset directly from a URL. Note that
+the ``TabularDataset`` class is a subclass of `pandas
 DataFrame <https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html>`__,
 any pandas methods can be applied here.
 
@@ -483,7 +484,7 @@ any pandas methods can be applied here.
 
     
       <div id="df-cbea597d-7c27-46df-b517-c90f044b1e9f">
-        <div class="colab-df-container">
+        <div class="colab-df-container table-wrapper">
           <div>
     <style scoped>
         .dataframe tbody tr th:only-of-type {
@@ -498,7 +499,7 @@ any pandas methods can be applied here.
             text-align: right;
         }
     </style>
-    <table class="docutils">
+    <table class="dataframe docutils">
       <thead>
         <tr style="text-align: right;">
           <th></th>
@@ -714,9 +715,11 @@ values.
 
 
 Now construct a ``TabularPredictor`` instance by specifying the label
-column name, and train with ``fit``. It will perform automatic feature
-engineering, train multiple models, and then ensemble them to form the
-final predictions. You can find detailed information in the output log.
+column name, then train on the dataset with the ``fit`` method. We don’t
+need to specify any other hyperparameters. This method will perform
+automatic feature engineering, train multiple models, and then ensemble
+them to form the final predictions. You can find detailed information in
+the output log.
 
 .. code:: python
 
@@ -882,10 +885,26 @@ If you just want to evaluate the model performance, you can call the
 
 
 
-Now we did a quick through about loading the data, training and
-inference. Next you can read
+Now we did a quick through about using AutoGluon for tabular prediction.
+We used two classes, ``TabularDataset`` (essentially a pandas DataFrame)
+to load data and ``TabularPrediction`` to train (via the ``fit`` method)
+and predict (via the ``predict`` method). You will see similar APIs for
+other tasks, namely a ``Dataset`` class to load data and a
+``Prediction`` class to train and predict.
+
+In addition, AutoGluon simplifies the model training by not requiring
+feature engineering and specifying model hyperparameters. AutoGluon
+automatically performs these jobs when running ``fit``. You may worry
+about the resulted longer training time, AutoGluon balances the
+computational cost and model quality. You can benchmark AutoGluon’s
+performance on the whole dataset loaded above against your favoriate
+machine learning model. But to be fair, you also need to count the time
+you spend on preprocessing data and tuning your models.
+
+To know more about AutoGluon, next you can read
 
 -  the cheetsheet for a quick overview of the APIs
 -  tutorials to customize the training and inference
 -  understand how AutoGluon performs feature engineering and model
    ensemble.
+

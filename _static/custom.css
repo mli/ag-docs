@@ -5,3 +5,10 @@
     word-wrap: break-word;
 }
 
+.highlight {
+    background: #f0f0f0;
+}
+
+table.dataframe {
+    font-size: 0.8rem;
+}
