@@ -161,17 +161,12 @@ E
     get_started/install
 
 .. toctree::
-   :caption: Tutorials
+   :caption: Tabular
    :hidden:
    :maxdepth: 2
    
-   tutorials/tabular/index
+   tabular/fit/index
+   tabular/api/index
 
-.. toctree::
-   :caption: API
-   :hidden:
-   :maxdepth: 2
-   
-   api/index
 
 ```

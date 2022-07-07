@@ -1,12 +1,18 @@
-.highlight-default .highlight {
+/* .highlight-default .highlight {
     background: #fff;
     border: 1px solid #999;  
     border-radius: 4px;
     word-wrap: break-word;
-}
+} */
 
 .highlight {
-    background: #f0f0f0;
+    /* background: #f0f0f0; */
+    border: 1px #ccc solid;
+}
+
+.highlight-python .highlight {
+    border-left-color: #3977B9;
+    border-left-width: medium;
 }
 
 table.dataframe {

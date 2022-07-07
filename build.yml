@@ -6,5 +6,5 @@ dependencies:
     - myst_parser
     - sphinx-material
     - furo
-    - sphinx-togglebutton
+    - git+https://github.com/executablebooks/sphinx-togglebutton # because of https://github.com/executablebooks/sphinx-togglebutton/issues/44
     - sphinx-copybutton
