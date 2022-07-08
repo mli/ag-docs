@@ -1,5 +1,11 @@
 _build
-**/.DS_store
+.DS_Store
+**/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store
+**/AutogluonModels
+jupyter_execute
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -129,3 +135,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+

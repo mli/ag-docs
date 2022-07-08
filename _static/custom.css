@@ -1,20 +1,13 @@
-/* .highlight-default .highlight {
-    background: #fff;
-    border: 1px solid #999;  
-    border-radius: 4px;
-    word-wrap: break-word;
-} */
-
-.highlight {
-    /* background: #f0f0f0; */
-    border: 1px #ccc solid;
-}
-
-.highlight-python .highlight {
+div.cell div.cell_input {
     border-left-color: #3977B9;
     border-left-width: medium;
+    border-radius: 0.2rem;
 }
 
-table.dataframe {
+div.cell_output table {
     font-size: 0.8rem;
+}
+
+div.cell_output {
+    overflow-x: scroll;
 }

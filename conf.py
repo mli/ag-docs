@@ -2,13 +2,14 @@
 import sys
 sys.path.insert(0, '..')
 sys.path.insert(0, '.')
+import nbformat
 
 # project = "Practical Machine Learning"
 copyright = "2021, All authors. Licensed under CC-BY-SA-4.0 and MIT-0."
 author = "Alex Smola, Qingqing Huang, Mu Li"
 
 extensions = [
-    'myst_parser', 
+    # 'myst_parser', 
     'sphinx_design', 
     'sphinx_copybutton',
     # 'nbsphinx',
@@ -16,11 +17,34 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
     'sphinx.ext.autosummary',
+    'myst_nb',
     #'autoapi.extension'
     ]#"sphinxcontrib.bibtex","sphinxcontrib.rsvgconverter","sphinx.ext.autodoc","sphinx.ext.viewcode"]
 
+
 myst_enable_extensions = ["colon_fence", "deflist", "substitution", "html_image"]
 
+def notebook_reads(path):
+    nb = nbformat.reads(path, as_version=4)
+    for cell in nb.cells: 
+        tags = []
+        for l in cell.source.splitlines():
+            if l.startswith('#@title'):
+                tags.append('hide-input')
+                break
+        if cell.metadata.get('collapsed'):
+            tags.append('hide-output')
+        if len(tags) == 2:
+            tags = ['hide-cell']
+        if tags:
+            cell.metadata['tags'] = tags
+    return nb
+
+nb_custom_formats = {
+    '.ipynb': "conf.notebook_reads"
+}
+
+nb_execution_mode = "off"
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.md', 'syllabus_raw.md']
