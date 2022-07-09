@@ -45,6 +45,7 @@ nb_custom_formats = {
 }
 
 nb_execution_mode = "off"
+nb_execution_excludepatterns = ['jupyter_execute']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.md', 'syllabus_raw.md']

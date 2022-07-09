@@ -8,5 +8,6 @@ This section contains how-to tutorials for training tabular data via {func}`auto
 
 presets
 evaluations
+model_hyperparameters
 ```
 

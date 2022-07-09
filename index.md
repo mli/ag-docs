@@ -157,8 +157,8 @@ E
     :caption: Get Started
     :maxdepth: 1
 
-    get_started/tabular_quick_start
-    get_started/install
+    tabular/tabular_quick_start
+    install
 
 .. toctree::
    :caption: Tabular
@@ -166,7 +166,7 @@ E
    :maxdepth: 2
    
    tabular/fit/index
+   tabular/predict/index
    tabular/api/index
-
 
 ```
