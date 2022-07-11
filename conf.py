@@ -80,8 +80,9 @@ html_theme_options = {
     'master_doc': False,
 #    'nav_links': [{'href':'index', 'title':'Home', 'internal':True}],
     "light_css_variables": {
-        "color-brand-primary": "#3977B9",
+        "admonition-font-size": "0.95rem",
         "color-brand-content": "#3977B9",
+        "color-brand-primary": "#3977B9",
     },
     "announcement": "Check new release 0.5 with forcast and multi-modal!",
     

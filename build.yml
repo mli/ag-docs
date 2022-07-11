@@ -8,3 +8,5 @@ dependencies:
     - furo
     - git+https://github.com/executablebooks/sphinx-togglebutton # because of https://github.com/executablebooks/sphinx-togglebutton/issues/44
     - sphinx-copybutton
+    - myst-nb
+    - sphinx-design

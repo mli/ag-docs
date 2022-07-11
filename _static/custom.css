@@ -1,5 +1,5 @@
 div.cell div.cell_input {
-    border-left-color: #3977B9;
+    border-left-color: var(--color-brand-content);
     border-left-width: medium;
     border-radius: 0.2rem;
 }
@@ -15,4 +15,16 @@ div.cell_output {
 
 .dataframe {
     margin: 1em 0;
+}
+
+details.toggle-details summary:hover {
+    background: transparent;
+}
+
+details.toggle-details summary:active {
+    background: transparent;
+}
+
+details.toggle-details summary {
+    background: transparent;
 }
