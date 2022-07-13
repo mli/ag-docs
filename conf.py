@@ -4,12 +4,14 @@ sys.path.insert(0, '..')
 sys.path.insert(0, '.')
 import nbformat
 
-# project = "Practical Machine Learning"
-copyright = "2021, All authors. Licensed under CC-BY-SA-4.0 and MIT-0."
-author = "Alex Smola, Qingqing Huang, Mu Li"
+project = "AutoGluon"
+release = '0.5.0'
+copyright = "2022, All authors. Licensed under Apache 2.0."
+author = "AutoGluon contributors"
 
 extensions = [
     # 'myst_parser', 
+    # 'sphinx.ext.napoleon',
     'sphinx_design', 
     'sphinx_copybutton',
     # 'nbsphinx',
@@ -80,11 +82,11 @@ html_theme_options = {
     'master_doc': False,
 #    'nav_links': [{'href':'index', 'title':'Home', 'internal':True}],
     "light_css_variables": {
-        "admonition-font-size": "0.95rem",
-        "color-brand-content": "#3977B9",
-        "color-brand-primary": "#3977B9",
+        # "admonition-font-size": "0.95rem",
+        # "color-brand-content": "#3977B9",
+        # "color-brand-primary": "#3977B9",
     },
-    "announcement": "Check new release 0.5 with forcast and multi-modal!",
+    "announcement": "Check new release 0.5 with new forecast and multi-modal modules!",
     
 }
 
@@ -100,8 +102,9 @@ html_sidebars = {
         "sidebar/brand.html",
         "sidebar/search.html",
         "sidebar/navigation.html",
-        "sidebar/ethical-ads.html",
+      #  "sidebar/ethical-ads.html",
         "sidebar/scroll-end.html",
+        "sidebar/variant-selector.html"
     ]
 }
 
@@ -115,49 +118,54 @@ html_css_files = [
     'custom.css', 'https://at.alicdn.com/t/font_2371118_b27k2sys2hd.css'
 ]
 
-
-from sphinx.ext.autosummary import Autosummary
-from sphinx.ext.autosummary import get_documenter
-from docutils.parsers.rst import directives
-from sphinx.util.inspect import safe_getattr
-import re
-
-class AutoAutoSummary(Autosummary):
-    option_spec = {
-        'methods': directives.unchanged,
-        'attributes': directives.unchanged
-    }
-    required_arguments = 1
-    @staticmethod
-    def get_members(obj, typ, include_public=None):
-        if not include_public:
-            include_public = []
-        items = []
-        for name in dir(obj):
-            try:
-                documenter = get_documenter(safe_getattr(obj, name), obj)
-            except AttributeError:
-                continue
-            if documenter.objtype == typ:
-                items.append(name)
-        public = [x for x in items if x in include_public or not x.startswith('_')]        
-        return public, items
-
-    def run(self):
-        clazz = str(self.arguments[0])
-        try:
-            (module_name, class_name) = clazz.rsplit('.', 1)
-            m = __import__(module_name, globals(), locals(), [class_name])
-            c = getattr(m, class_name)
-            if 'methods' in self.options:
-                _, methods = self.get_members(c, 'method', ['__init__'])
-                print(methods)
-                self.content = ["~%s.%s" % (clazz, method) for method in methods if not method.startswith('_')]
-            if 'attributes' in self.options:
-                _, attribs = self.get_members(c, 'attribute')
-                self.content = ["~%s.%s" % (clazz, attrib) for attrib in attribs if not attrib.startswith('_')]
-        finally:
-            return super(AutoAutoSummary, self).run()
-
 def setup(app):
-    app.add_directive('autoautosummary', AutoAutoSummary)
+    try:
+        from sphinx.ext.autosummary import Autosummary
+        from sphinx.ext.autosummary import get_documenter
+        from docutils.parsers.rst import directives
+        from sphinx.util.inspect import safe_getattr
+        import re
+
+        class AutoAutoSummary(Autosummary):
+
+            option_spec = {
+                'methods': directives.unchanged,
+                'attributes': directives.unchanged
+            }
+
+            required_arguments = 1
+
+            @staticmethod
+            def get_members(obj, typ, include_public=None):
+                if not include_public:
+                    include_public = []
+                items = []
+                for name in dir(obj):
+                    try:
+                        documenter = get_documenter(app, safe_getattr(obj, name), obj)
+                    except AttributeError:
+                        continue
+                    if documenter.objtype == typ:
+                        items.append(name)
+                public = [x for x in items if x in include_public or not x.startswith('_')]
+                return public, items
+
+            def run(self):
+                clazz = self.arguments[0]
+                try:
+                    (module_name, class_name) = clazz.rsplit('.', 1)
+                    m = __import__(module_name, globals(), locals(), [class_name])
+                    c = getattr(m, class_name)
+                    if 'methods' in self.options:
+                        _, methods = self.get_members(c, 'method', ['__init__'])
+
+                        self.content = ["~%s.%s" % (clazz, method) for method in methods if not method.startswith('_')]
+                    if 'attributes' in self.options:
+                        _, attribs = self.get_members(c, 'attribute')
+                        self.content = ["~%s.%s" % (clazz, attrib) for attrib in attribs if not attrib.startswith('_')]
+                finally:
+                    return super(AutoAutoSummary, self).run()
+
+        app.add_directive('autoautosummary', AutoAutoSummary)
+    except BaseException as e:
+        raise e

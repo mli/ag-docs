@@ -6,6 +6,8 @@ my_model
 */*/*/.DS_Store
 **/AutogluonModels
 jupyter_execute
+_autogen
+*.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -29,7 +29,7 @@ hide-toc: true
 
 AutoML for Tabular, Text, Image, and Multi-Modal Data
 
-```{button-link} get_started/tabular_quick_start.html
+```{button-link} tabular/quick_start.html
 :outline:
 :color: white
 :class: sd-px-4 sd-fs-5
@@ -114,7 +114,7 @@ To install use [pip](https://pip.pypa.io/en/stable/installation/):
 pip install autogluon
 ```
 
-Check the [installation guide](get_started/install.md) for detailed instructions. 
+Check {doc}`./install` for detailed instructions. 
 
 
 ## {octicon}`light-bulb` Solutions to ML problems
@@ -123,14 +123,14 @@ Check the [installation guide](get_started/install.md) for detailed instructions
 :gutter: 3
 
 :::{grid-item-card}  Predicting Columns in a Table
-:link: get_started/tabular_quick_start.html
+:link: tabular/quick_start.html
 
 Fitting models with tabular datasets
 :::
 
 :::{grid-item-card}  Example 1
 :link-type: ref
-:link: get_started/install
+:link: install
 
 A
 :::
@@ -150,23 +150,30 @@ E
 
 
 
-```{eval-rst}
+```{toctree}
+:hidden:
+:caption: Get Started
+:maxdepth: 1
 
-.. toctree::
-    :hidden:
-    :caption: Get Started
-    :maxdepth: 1
+tabular/quick_start
+install
+```
 
-    tabular/tabular_quick_start
-    install
+```{toctree}
+:caption: Tabular
+:hidden:
+:maxdepth: 2
 
-.. toctree::
-   :caption: Tabular
-   :hidden:
-   :maxdepth: 2
-   
-   tabular/fit/index
-   tabular/predict/index
-   tabular/api/index
+tabular/fit
+tabular/predict
+tabular/customization
+```
 
+```{toctree}
+:caption: API
+:hidden:
+:maxdepth: 3
+
+api/autogluon.tabular
+api/autogluon.core
 ```

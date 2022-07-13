@@ -6,8 +6,8 @@ This section contains how-to tutorials for training tabular data via {func}`auto
 ```{toctree}
 :maxdepth: 1
 
-presets
-evaluations
+fit_presets
+model_validation
 model_hyperparameters
 ```
 
