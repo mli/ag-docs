@@ -5,4 +5,5 @@
 
 
 custom_metric
+custom_model
 ```

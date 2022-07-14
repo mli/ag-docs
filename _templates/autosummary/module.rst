@@ -26,7 +26,6 @@
    {% endblock %}
 
    {% block classes %}
-   {{ classes }}
    {% if classes %}
    .. rubric:: {{ _('Classes') }}
 

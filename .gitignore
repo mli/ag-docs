@@ -8,6 +8,8 @@ my_model
 jupyter_execute
 _autogen
 *.py
+tabular/*.csv
+*.zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

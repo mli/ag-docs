@@ -166,6 +166,7 @@ install
 
 tabular/fit
 tabular/predict
+tabular/applications
 tabular/customization
 ```
 

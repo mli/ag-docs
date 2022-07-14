@@ -12,13 +12,16 @@ autogluon.tabular
     TabularDataset
     TabularPredictor
 
+.. toctree::
+
+   autogluon.tabular.models
+
 .. autosummary:: 
     :nosignatures:
     :toctree: _autogen
 
    configs
    learner
-   models
    predictor 
    trainer
    tuning
